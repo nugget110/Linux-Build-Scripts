@@ -1,0 +1,45 @@
+############################################################################################################################
+
+#
+#   Initials setup
+#
+sudo apt update
+sudo apt dist=upgrade -y
+
+sudo apt install vim
+#
+# Add sudoers
+sudo adduser stever
+sudo adduser stever sudo
+
+echo "stever ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/steve-nopasswd
+
+# Configure SSH keys
+#
+#  In home direction
+mkdir $HOME/.ssh
+cat "KNOWN_KEYS" >> $HOME/.ssh/authorized_keys
+
+#
+#  LDAP Client from https://www.baeldung.com/linux/ubuntu-ldap-client
+#
+sudo apt-get install libnss-ldap libpam-ldap ldap-utils nscd
+
+# Configure LDAP
+edit /etc/ldap.conf see example
+edit /etc/ldap.secret see example
+
+edit /etc/nsswitch.conf see example
+edit /etc/pam.d/common-session see example
+
+
+# Open VPN client to angus
+
+EASY-RSA on angus
+make new client certs
+
+
+
+
+
+
