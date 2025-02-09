@@ -27,7 +27,7 @@ sudo apt-get install libnss-ldap libpam-ldap ldap-utils nscd
 
 # Configure LDAP
 edit /etc/ldap.conf see example
-edit /etc/ldap.secret see example
+edit /etc/ldap.secret put the password in
 
 edit /etc/nsswitch.conf see example
 edit /etc/pam.d/common-session see example
