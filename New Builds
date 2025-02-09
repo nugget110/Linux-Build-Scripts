@@ -6,7 +6,7 @@
 sudo apt update
 sudo apt dist=upgrade -y
 
-sudo apt install vim
+sudo apt install vim inetutils-ping
 #
 # Add sudoers
 sudo adduser stever
@@ -37,6 +37,23 @@ edit /etc/pam.d/common-session see example
 
 EASY-RSA on angus
 make new client certs
+
+on Angus
+cd /root/EasyRSA-3.0.4/
+./easyrsa gen-req figjam-mail nopass
+./easyrsa sign-req client figjam-mail
+
+transfer to new client
+cd pki
+copy issued/figjam-mail.crt to new client
+copy private/figjam-mail.key to new client
+
+use host setup script
+user openvpn config example
+
+
+
+
 
 
 
