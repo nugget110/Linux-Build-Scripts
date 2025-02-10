@@ -24,7 +24,7 @@ mkdir $HOME/.ssh
 cat "KNOWN_KEYS" >> $HOME/.ssh/authorized_keys
 
 #
-#  LDAP Client from https://www.baeldung.com/linux/ubuntu-ldap-client
+#  LDAP Client from https_//www.baeldung.com/linux/ubuntu-ldap-client
 #
 sudo apt-get install libnss-ldap libpam-ldap ldap-utils nscd
 
