@@ -7,6 +7,9 @@ sudo apt update
 sudo apt dist=upgrade -y
 
 sudo apt install vim inetutils-ping
+sudo apt install openssh-client openssh-server -y
+systemctl enable ssh
+
 #
 # Add sudoers
 sudo adduser stever
@@ -81,7 +84,17 @@ vi /etc/fstab
 
 example.hostname.com:/srv /mnt/example nfs rsize=8192,wsize=8192,timeo=14,intr
 
+#ProxMox addition steps
 
+#on proxmox server
+
+By default, Proxmox might restrict certain operations for security reasons. To allow mounting, you need to modify the container’s configuration file in Proxmox:
+
+Navigate to the LXC configuration directory:
+cd /etc/pve/lxc
+Edit the container configuration file (e.g., 100.conf) and add:
+lxc.apparmor.profile: unconfined
+This change will disable the AppArmor profile for the container, allowing it to perform tasks like mounting an NFS share.
 
 
 
