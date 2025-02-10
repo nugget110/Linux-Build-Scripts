@@ -52,6 +52,42 @@ use host setup script
 user openvpn config example
 
 
+# GeoIP
+
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:maxmind/ppa
+sudo apt update
+sudo apt install geoipupdate
+
+add to crontab, ie 31 1 * * 6,4 /usr/local/bin/geoipupdate for twice a week
+
+
+#NFS connections
+
+# NFS Server
+# 
+sudo apt install nfs-kernel-server
+vi /etc/exports
+
+sudo exportfs -a
+
+#NFS Client
+sudo apt install nfs-common
+
+sudo mkdir /mnt/example
+sudo mount example.hostname.com:/srv /mnt/example
+
+vi /etc/fstab
+
+example.hostname.com:/srv /mnt/example nfs rsize=8192,wsize=8192,timeo=14,intr
+
+
+
+
+
+
+
+
 
 
 
