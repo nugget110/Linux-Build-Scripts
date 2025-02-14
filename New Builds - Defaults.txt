@@ -10,6 +10,8 @@ sudo apt install vim inetutils-ping
 sudo apt install openssh-client openssh-server -y
 systemctl enable ssh
 
+dpkg-reconfigure tzdata
+
 #
 # Add sudoers
 sudo adduser stever
